@@ -1,0 +1,167 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-wrap">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">Checkout</li>
+        </ul>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Checkout Start -->
+<form action="/placeorder/" method="POST">
+    {% csrf_token %}
+    <div class="checkout">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="checkout-inner">
+                        <div class="billing-address">
+                            <h2>Billing Address</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>First Name</label>
+                                    <input name="fname" class="form-control" type="text" placeholder="First Name" value="{{user.first_name}}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Last Name</label>
+                                    <input name="lname" class="form-control" type="text" placeholder="Last Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>E-mail</label>
+                                    <input name="email" class="form-control" type="email" placeholder="E-mail">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Mobile No</label>
+                                    <input name="mobile" class="form-control" type="text" placeholder="Mobile No">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Address</label>
+                                    <input name="address" class="form-control" type="text" placeholder="Address">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Country</label>
+                                    <select name="country" class="custom-select">
+                                            <option selected>United States</option>
+                                            <option>Afghanistan</option>
+                                            <option>Albania</option>
+                                            <option>Algeria</option>
+                                        </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>City</label>
+                                    <input name="city" class="form-control" type="text" placeholder="City">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>State</label>
+                                    <input name="state" class="form-control" type="text" placeholder="State">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>ZIP Code</label>
+                                    <input name="zipcode" class="form-control" type="text" placeholder="ZIP Code">
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="checkout-inner">
+                        <div class="checkout-summary">
+                            <h1>Cart Total</h1>
+                            {% for check in my_checkout %}
+                            <p>{{check.items.name}}&emsp;&emsp;{{check.quantity}}<span>{% if cart.items.discount > 0 %}
+                            <td>${{check.items.discount}}</td>
+                            {% else %}
+                            <td>${{check.items.price}}</td>
+                            {% endif %}</span></p>
+                            {% endfor %}
+                            <p class="sub-total">Sub Total<span>{{grand_totals}}</span></p>
+                            <p class="ship-cost">Shipping Cost<span>$100</span></p>
+                            <h2>Grand Total<span><input value="{{gd}}" name="grand_totalss"></span></h2>
+                        </div>
+
+                        <div class="checkout-payment">
+                            <div class="payment-methods">
+                                <h1>Payment Methods</h1>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-1" name="payment">
+                                        <label class="custom-control-label" for="payment-1">Paypal</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-1-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-2" name="payment">
+                                        <label class="custom-control-label" for="payment-2">Payoneer</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-2-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-3" name="payment">
+                                        <label class="custom-control-label" for="payment-3">Check Payment</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-3-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-4" name="payment">
+                                        <label class="custom-control-label" for="payment-4">Direct Bank Transfer</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-4-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-5" name="payment">
+                                        <label class="custom-control-label" for="payment-5">Cash on Delivery</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-5-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" value="cash on delivery" name="payment_mode">
+                            <input type="hidden" value="order_id" name="order_id">
+                            <div class="checkout-btn" type="submit">
+                                <button>Place Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+<!-- Checkout End -->
+
+{% endblock %}
