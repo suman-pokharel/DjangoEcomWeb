@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT Ecom.wsgi:application
+web: waitress-serve --port=$PORT --call Ecom.wsgi:application
