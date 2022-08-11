@@ -128,10 +128,10 @@ USE_TZ = True
 STATIC_URL = '/staticfiles/'
 if DEBUG:
    STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, 'staticfiles'),
+   os.path.join(BASE_DIR, 'staticfiles/'),
    ]
 else:
-   STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+   STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles/')
 
 # Base url to serve media files
 MEDIA_URL = '/media/'

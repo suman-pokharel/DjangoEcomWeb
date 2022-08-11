@@ -1,2 +1,0 @@
-# DjangoEcomWeb
-Django Ecommerce Website
