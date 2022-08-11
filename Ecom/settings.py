@@ -138,3 +138,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+if 'DATABASE_URL' in os.environ: #means heroku
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()} 
