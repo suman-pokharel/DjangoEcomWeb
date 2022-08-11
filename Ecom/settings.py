@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # TEMPLATES_DIRS=BASE_DIR/'templates'
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -141,3 +143,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if 'DATABASE_URL' in os.environ: #means heroku
     import dj_database_url
     DATABASES = {'default': dj_database_url.config()} 
+
+
