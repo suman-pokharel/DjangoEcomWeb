@@ -131,7 +131,7 @@ if DEBUG:
    os.path.join(BASE_DIR, 'staticfiles/'),
    ]
 else:
-   STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles/')
+   STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
