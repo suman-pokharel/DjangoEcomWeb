@@ -5,8 +5,7 @@ from email import message
 from email.mime import image
 from itertools import product
 from telnetlib import STATUS
-import _tkinter,tkinter
-from tkinter import CASCADE
+from django.db.models.deletion import CASCADE
 from unicodedata import category, name
 from django.db import models
 from django.forms import CharField
