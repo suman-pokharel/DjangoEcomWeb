@@ -162,7 +162,7 @@ class OderItems(models.Model):
     order=models.ForeignKey(OrderPlace,on_delete=models.CASCADE)
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
     quantity=models.IntegerField(null=False)
-    price=models.IntegerField(default=NULL)
+    price=models.IntegerField(default=0)
     def __str__(self):
         return '{}-{}'.format(self.order.id,self.order.tracking_id)
     
