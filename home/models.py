@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from datetime import date
 from distutils.command.upload import upload
 import email
