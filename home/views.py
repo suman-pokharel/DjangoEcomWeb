@@ -15,9 +15,6 @@ from django.contrib import messages,auth
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
 
-
-
-
 class Base(View):
 	views = {}
 	views['categories'] = Category.objects.all()
