@@ -11,4 +11,5 @@ class ProductViewSet(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends=[DjangoFilterBackend]
-    filterset_field=['name']
+    lookup_field=['name']
+    
