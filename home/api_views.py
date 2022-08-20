@@ -10,6 +10,6 @@ class ProductList(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     # filter_backends=[DjangoFilterBackend]
-    lookup_field=['stock']
+    # lookup_field=['stock']
     # filterset_fields = ['stock']
     
