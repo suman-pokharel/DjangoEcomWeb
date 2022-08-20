@@ -11,5 +11,5 @@ class ProductList(ListAPIView):
     serializer_class = ProductSerializer
     # filter_backends=[DjangoFilterBackend]
     # lookup_field=['name']
-    filterset_fields = ['STOCK']
+    filterset_fields = ['stock']
     
